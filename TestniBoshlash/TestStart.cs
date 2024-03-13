@@ -10,6 +10,8 @@ namespace QuizApp.TestniBoshlash
     {
         private string fileName;
         private int currentIndex = 0;
+        private int correctCount = 0;
+        private int incorrectCount = 0;
 
         public TestStart(string fileName)
         {
@@ -19,11 +21,11 @@ namespace QuizApp.TestniBoshlash
             UpdateButtonLabels();
         }
 
-        public string Question = "";
-        public string A = "";
-        public string B = "";
-        public string C = "";
-        public string currentAnswer = "";
+        private string Question = "";
+        private string A = "";
+        private string B = "";
+        private string C = "";
+        private string currentAnswer = "";
 
         private void LoadNextQuestion()
         {
@@ -31,14 +33,13 @@ namespace QuizApp.TestniBoshlash
             {
                 using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(fileName, false))
                 {
-                    Table table = wordDocument.MainDocumentPart!.Document.Body!.Elements<Table>().FirstOrDefault()!;
+                    Table table = wordDocument.MainDocumentPart.Document.Body.Elements<Table>().FirstOrDefault();
                     if (table != null)
                     {
                         if (currentIndex < table.Elements<TableRow>().Count())
                         {
                             TableRow row = table.Elements<TableRow>().ElementAt(currentIndex);
                             string question = "";
-
                             string wrongAnswersB = "";
                             string wrongAnswersC = "";
 
@@ -72,15 +73,16 @@ namespace QuizApp.TestniBoshlash
 
                             // Update button texts
                             Question = $"Question: {question}";
-                            A = $"A. {options[0]}";
-                            B = $"B. {options[1]}";
-                            C = $"C. {options[2]}";
+                            A = $"{options[0]}";
+                            B = $"{options[1]}";
+                            C = $"{options[2]}";
 
                             currentIndex++;
                         }
                         else
                         {
                             MessageBox.Show("No more questions available.");
+                            ShowResultForm(); // Show the result form when all questions are answered
                         }
                     }
                     else
@@ -118,41 +120,35 @@ namespace QuizApp.TestniBoshlash
 
         private void CheckAnswer(string selectedAnswer)
         {
-            // Extracting the selected option
-            char selectedOption = selectedAnswer[0];
+            string selectedOption = selectedAnswer.Trim(); // Extract the selected option (removing the prefix)
 
-            // Extracting the correct option
-            char correctOption = 'B'; // Default value
-            if (currentAnswer.StartsWith("A"))
+            if (string.Equals(selectedOption, currentAnswer, StringComparison.OrdinalIgnoreCase))
             {
-                correctOption = 'A';
-            }
-            else if (currentAnswer.StartsWith("B"))
-            {
-                correctOption = 'B';
-            }
-            else if (currentAnswer.StartsWith("C"))
-            {
-                correctOption = 'C';
-            }
-
-            // Comparing the selected option with the correct one
-            if (selectedOption == correctOption)
-            {
-                MessageBox.Show("Correct!");
+                MessageBox.Show("Correct! You chose the right answer.");
+                Current(); // Increment correct count
             }
             else
             {
-                MessageBox.Show("Wrong!");
+                MessageBox.Show($"Incorrect. The correct answer was {currentAnswer}.");
+                Incorrect(); // Increment incorrect count
             }
 
-            // Load next question
+            // Load next question and update button labels
             LoadNextQuestion();
-
-            // Update button texts
             UpdateButtonLabels();
         }
 
+        public void Current()
+        {
+            // Increment the count for correct answers
+            correctCount++;
+        }
+
+        public void Incorrect()
+        {
+            // Increment the count for incorrect answers
+            incorrectCount++;
+        }
 
         private void UpdateButtonLabels()
         {
@@ -160,6 +156,13 @@ namespace QuizApp.TestniBoshlash
             btnA.Text = A;
             btnB.Text = B;
             btnC.Text = C;
+        }
+
+        private void ShowResultForm()
+        {
+            Result resultForm = new Result(correctCount, incorrectCount);
+            resultForm.Show();
+            this.Hide();
         }
     }
 }

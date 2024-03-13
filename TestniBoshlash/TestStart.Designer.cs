@@ -71,10 +71,10 @@
             btnB.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnB.Font = new Font("Showcard Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnB.ForeColor = Color.White;
-            btnB.Location = new Point(96, 307);
+            btnB.Location = new Point(96, 314);
             btnB.Name = "btnB";
             btnB.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnB.Size = new Size(758, 65);
+            btnB.Size = new Size(758, 50);
             btnB.TabIndex = 5;
             btnB.Click += btnB_Click;
             // 
@@ -89,10 +89,10 @@
             btnA.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnA.Font = new Font("Showcard Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnA.ForeColor = Color.White;
-            btnA.Location = new Point(96, 226);
+            btnA.Location = new Point(96, 245);
             btnA.Name = "btnA";
             btnA.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnA.Size = new Size(758, 65);
+            btnA.Size = new Size(758, 51);
             btnA.TabIndex = 4;
             btnA.Click += btnA_Click;
             // 
@@ -107,7 +107,7 @@
             btnC.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnC.Font = new Font("Showcard Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnC.ForeColor = Color.White;
-            btnC.Location = new Point(96, 388);
+            btnC.Location = new Point(96, 382);
             btnC.Name = "btnC";
             btnC.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnC.Size = new Size(758, 54);

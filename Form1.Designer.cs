@@ -55,7 +55,7 @@
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.Font = new Font("Showcard Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(574, 287);
+            guna2Button1.Location = new Point(454, 287);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(337, 65);
@@ -74,7 +74,7 @@
             guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button2.Font = new Font("Showcard Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(917, 287);
+            guna2Button2.Location = new Point(797, 287);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button2.Size = new Size(337, 65);
@@ -92,7 +92,7 @@
             docxYuklash.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             docxYuklash.Font = new Font("Showcard Gothic", 15F, FontStyle.Bold);
             docxYuklash.ForeColor = Color.White;
-            docxYuklash.Location = new Point(33, 283);
+            docxYuklash.Location = new Point(-87, 283);
             docxYuklash.Name = "docxYuklash";
             docxYuklash.ShadowDecoration.CustomizableEdges = customizableEdges6;
             docxYuklash.Size = new Size(535, 69);
@@ -106,7 +106,7 @@
             guna2PictureBox1.CustomizableEdges = customizableEdges7;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(463, 12);
+            guna2PictureBox1.Location = new Point(343, 12);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2PictureBox1.Size = new Size(290, 228);
@@ -118,7 +118,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(77, 24, 160);
-            ClientSize = new Size(1266, 568);
+            ClientSize = new Size(1027, 568);
             Controls.Add(guna2PictureBox1);
             Controls.Add(docxYuklash);
             Controls.Add(guna2Button2);

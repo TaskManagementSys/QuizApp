@@ -110,7 +110,7 @@
             btnC.Location = new Point(96, 388);
             btnC.Name = "btnC";
             btnC.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnC.Size = new Size(758, 65);
+            btnC.Size = new Size(758, 54);
             btnC.TabIndex = 7;
             btnC.Click += btnC_Click;
             // 
